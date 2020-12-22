@@ -1267,7 +1267,7 @@
     resolve-from "^5.0.0"
     semver "7.3.2"
 
-"@nuxtjs/vuetify@^1.11.5":
+"@nuxtjs/vuetify@^2.0.0-beta.2":
   version "2.0.0-beta.2"
   resolved "https://registry.yarnpkg.com/@nuxtjs/vuetify/-/vuetify-2.0.0-beta.2.tgz#cf21d79076864f1817e09d850a1669ea8c609a7d"
   integrity sha512-vluxkT0qFj+XRpbvN+FIXDZZGK6QfOC9HyhCjrAbB+Yv0YOMIJSIJuAzmy3UPplbibKTUWxUUUsp2Wx2d5KUnQ==
