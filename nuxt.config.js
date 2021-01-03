@@ -18,7 +18,7 @@ export default {
   css: [],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: ['~/plugins/axios.js'],
+  plugins: [],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   components: true,
@@ -32,7 +32,32 @@ export default {
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: ['@nuxtjs/axios'],
+  modules: ['@nuxtjs/axios', '@nuxtjs/auth-next'],
+
+  auth: {
+    strategies: {
+      local: {
+        token: {
+          property: 'access_token',
+          required: true,
+          maxAge: 1800,
+          type: 'Bearer',
+        },
+        user: {
+          property: false,
+        },
+        endpoints: {
+          login: { url: 'auth/login/', method: 'post' },
+          user: { url: 'profile/', method: 'get' },
+        },
+      },
+    },
+    redirect: {
+      login: '/auth',
+    },
+    // Can work without localStorage !
+    localStorage: false,
+  },
 
   axios: {
     baseURL: process.env.BACKEND_URL,

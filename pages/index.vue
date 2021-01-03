@@ -1,7 +1,8 @@
 <template lang="pug">
   v-container
     h1 60s login!
-    p {{ user }}
+    p {{ $auth.user }}
+    p {{ serverUser }}
 
 </template>
 
@@ -9,17 +10,10 @@
 import api from '~/assets/ts/api'
 
 export default {
-  // async asyncData({ $axios }) {
-  //   const user = await api.getProfile($axios)
-
-  //   return { user }
-  // },
-
-  data: () => ({
-    user: {},
-  }),
-  async beforeMount() {
-    this.user = await api.getProfile(this.$axios)
+  layout: 'default',
+  async asyncData({ $axios }) {
+    const serverUser = await api.getProfile($axios)
+    return { serverUser }
   },
 }
 </script>
