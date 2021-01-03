@@ -5,6 +5,6 @@
 
 <script>
 export default {
-  middleware: 'guest',
+  middleware: ['guest'],
 }
 </script>

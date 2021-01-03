@@ -13,14 +13,14 @@ function setHeader(axios: NuxtAxiosInstance) {
   const token = process.browser
     ? localStorage.getItem('access_token') || ''
     : ''
-  axios.setToken(token, 'Token')
+  axios.setToken(token, 'Bearer')
 }
 
 export default {
   // Auth
   login(axios, data) {
     axios.setToken(false)
-    return axios.$post('auth/login', data)
+    return axios.$post('auth/login/', data)
   },
   getProfile(axios, data) {
     setHeader(axios)

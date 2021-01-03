@@ -9,10 +9,17 @@
 import api from '~/assets/ts/api'
 
 export default {
-  async asyncData({ $axios }) {
-    const user = await api.getProfile($axios)
+  // async asyncData({ $axios }) {
+  //   const user = await api.getProfile($axios)
 
-    return { user }
+  //   return { user }
+  // },
+
+  data: () => ({
+    user: {},
+  }),
+  async beforeMount() {
+    this.user = await api.getProfile(this.$axios)
   },
 }
 </script>

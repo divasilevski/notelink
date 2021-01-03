@@ -26,8 +26,8 @@ export default {
   }),
   methods: {
     login() {
-      api.login(this.$axios, this.form).then((response) => {
-        localStorage.setItem('access_token', response.key)
+      api.login(this.$axios, this.form).then((res) => {
+        localStorage.setItem('access_token', res.access_token)
         this.$router.push('/')
       })
     },
